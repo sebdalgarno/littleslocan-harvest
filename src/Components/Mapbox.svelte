@@ -206,7 +206,7 @@
 
       var coordinates = e.lngLat;
       var description = `
-      <p class='inline-block'> ${e.features[0].properties.description}</p>`;
+      <p class='inline-block font-bold'> ${e.features[0].properties.description}</p>`;
       popup.setLngLat(coordinates).setHTML(description).addTo(map);
     });
 

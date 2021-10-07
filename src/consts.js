@@ -1,7 +1,7 @@
 export const mapbox_key =
   "pk.eyJ1Ijoibm9ydGhiZWFjaGNvbnN1bHRpbmciLCJhIjoiY2tld2ZkdXA1MmZ5cjJxcXZ4aWN5eWRteSJ9.GmGSqnuACz13roMMveTdsw";
 
-export const tileset_logging = "mapbox://northbeachconsulting.bmiocycb";
+export const tileset_logging = "mapbox://northbeachconsulting.6ji8jskh";
 
 export const source_layer = ["logged_simplify", "logged_dissolve"];
 
