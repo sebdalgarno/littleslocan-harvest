@@ -7,8 +7,8 @@
 	import yearTotals from './year_totals.json'
 	import planned from './planned.json';
 
-	// import Content from '$lib/Content.svelte';
-	// import Modal from 'svelte-simple-modal';
+	import Modal from "svelte-simple-modal";
+  import ModalAbout from "./Components/ModalAbout.svelte";
 	import chroma from 'chroma-js';
 	import { base_colors, coordinates, year_min, year_max, bounds } from './consts';
 
@@ -112,15 +112,16 @@
 	<div class="mt-5 col-span-2">
 		<div class="grid-rows-3">
 			<div class="row-span-1 text-center bg-black text-gray-300 px-8 mb-3">
-				<span class="text-2xl text-gray-400">75 years</span>
+				
+				<span class="text-2xl text-gray-400">A history</span>
 				<span class="text-xl text-gray-400">of</span>
 				<span class="text-2xl text-gray-400">logging</span>
 				<span class="text-xl text-gray-600">in</span>
 				<span class="text-2xl text-gray-400">Little Slocan</span>
 				<!-- <p class="text-md text-gray-700">Move the slider to go forward in time</p> -->
-				<!-- <p class="text-md text-gray-700">Hover over chart or map to view detailed info</p> -->
-				<br />
+				<!-- <p class="text-md text-gray-700">Hover over chart or map to view detailed info</p> -->				
 			</div>
+			
 
 			<div class="row-span-1">
 				<div class="w-full bg-opacity-75 p-2" style="z-index: 1;">
@@ -160,17 +161,18 @@
 					<div class="p-4">
 						<Chart {planned} {year} {year_min} {data_total} {map_palette} {palette} />
 					</div>
-					<div class="text-xs p-3">
+					<Modal >
+						<ModalAbout />
+					  </Modal>
+					<!-- <div class="text-xs p-3">
 						<span class="text-gray-600 pr-1">developed by </span>
 						<a
 							href="https://www.northbeachconsulting.ca"
 							class="hover:no-underline hover:text-blue-600"
 							target="_blank">North Beach Consulting</a
 						>
-						<!-- <Modal>
-                            <Content />
-                          </Modal> -->
-					</div>
+					</div> -->
+					
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
+export const attribution =
+  "This web app was developed by Seb Dalgarno (seb@northbeachconsulting.ca). Data were compiled and cleaned by Dave Leversee.";
 
 export const data =
-"Data from 1900-2017 were collected and processed by Dave Leversee and John Boradhead and Seb Dalgarno helped with data covering 2004-2017.";
+  "VRI (2019), Harvest RESULTS and Reserves (2020), Consolidated Cutblocks (2020), Harvest Authority (2020), NRCAN Landsat Time Series (1985-2015), Sentinel-2 imagery (August 2019, June 2020).";
 
 export const tips =
-  "To begin, either move the slider or press the +/- buttons in the bottom left. This will increase/decrease years and show corresponding logged areas in the map and chart. The map can be zoomed and panned with your mouse (scroll for zoom and click and drag for pan). Higher resolution logged areas are shown as you zoom in. To view logged areas for an individual year, click the 'by year' button. To view second growth logging as a separate colour, click the '2nd growth' button.";
-
-
+  "To move forward and backward in time, either move the slider, click +/- buttons, or click the slider and press the left/right arrow keys on your keyboard. Use the mouse to zoom or pan the map. Hover mouse over chart and logged polygons on map to see more detailed info.";

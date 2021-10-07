@@ -2,7 +2,7 @@
   import { getContext } from "svelte";
   import About from "./About.svelte";
   import Button from "./Button.svelte";
-  import { data, tips } from "../about";
+  import {data, tips } from "../about";
 
   const { open } = getContext("simple-modal");
   //   export let message;
@@ -22,4 +22,4 @@
   };
 </script>
 
-<Button caption={'about'} outline={false} on:open-modal={showAbout} />
+<Button caption={'More Info'} outline={false} on:open-modal={showAbout} />
