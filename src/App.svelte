@@ -12,6 +12,8 @@
 	import chroma from 'chroma-js';
 	import { base_colors, coordinates, year_min, year_max, bounds } from './consts';
 
+	$: console.log(year)
+
 	let yeardiff = year_max - year_min;
 	let palette = chroma.bezier(base_colors).scale().correctLightness().colors(60);
 
@@ -85,13 +87,13 @@
 
 	function addYear() {
 		if (year != year_max) {
-			year++;
+			year[0]++;
 		}
 	}
 
 	function minusYear() {
 		if (year != year_min) {
-			year--;
+			year[0]--;
 		}
 	}
 </script>
