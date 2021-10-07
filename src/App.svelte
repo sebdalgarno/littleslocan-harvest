@@ -3,7 +3,7 @@
 	import Legend from './Components/Legend.svelte';
 	import Button from './Components/Button.svelte';
 	import Slider from 'svelte-range-slider-pips';
-	import Chart from './Components/Bchart.svelte';
+	import Chart from './Components/Barchart.svelte';
 	import yearTotals from './year_totals.json'
 	import planned from './planned.json';
 
