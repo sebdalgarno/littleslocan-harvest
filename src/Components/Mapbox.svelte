@@ -2,43 +2,26 @@
   import { onMount, onDestroy } from "svelte";
   import { mapbox, key } from "../mapbox.js";
   import {
-    year_min,
-    year_max,
     tileset_logging,
     tileset_wshed,
     coordinates,
-    source_layer,
     mapbox_style,
-    // tileset_base,
-    // tileset_parks,
-    base_colors,
   } from "../consts";
 
   export let year = 1945;
-  export let single = false;
   export let map_palette;
-  export let map_palette_single;
   export let map_palette_planned;
-  // export let map_palette_bare;
   export let bounds;
 
-  // let map_palette_sg = ["true", "white", "false", "black"];
-
   $: if (typeof map !== "undefined" && done) {
-    filterLoggedAreas(year, single);
+    filterLoggedAreas(year);
   }
 
   let done = false;
 
-  let fill_opacity = 0.75;
-
   let container;
   let map;
   var hoveredStateId = null;
-
-  function filterSingle() {
-    map.setFilter("logged", ["==", "year", year]);
-  }
 
   function filterAccumulate() {
     map.setFilter("logged", ["<=", "year", year]);
@@ -59,75 +42,13 @@
       ]
   };
 
-  // let paint_property = (year) => {
-  //   return [
-  //     "match",
-  //     ["string", ["get", "stay_bare"]],
-  //     ...map_palette_bare,
-  //     [
-  //       "match",
-  //       ["string", ["get", "planned"]],
-  //       ...map_palette_planned,
-  //       [
-  //         "match",
-  //         ["-", year, ["number", ["get", "year"]]],
-  //         ...map_palette,
-  //         map_palette[1],
-  //       ],
-  //     ],
-  //   ];
-  // };
-
-  let paint_property_single = (year) => {
-    return [
-      map_palette_single
-  ]
-  };
-
-  // let paint_property_single = (year) => {
-  //   return [
-  //     "match",
-  //     ["string", ["get", "stay_bare"]],
-  //     ...map_palette_bare,
-  //     [
-  //       "match",
-  //       ["string", ["get", "planned"]],
-  //       ...map_palette_planned,
-  //       map_palette_single,
-  //     ],
-  //   ];
-  // };
-
-  // let paint_property_secondgrowth = year => {
-  //   return [
-  //     "match",
-  //     ["string", ["get", "SecondGrowth"]],
-  //     ...map_palette_sg,
-  //     [
-  //       "match",
-  //       ["-", year, ["number", ["get", "YearHarvested"]]],
-  //       ...map_palette,
-  //       "#AAAAAA"
-  //     ]
-  //   ];
-  // };
-
   function setPalette(year) {
     map.setPaintProperty("logged", "fill-color", paint_property(year));
   }
 
-  function setPaletteSingle(year) {
-    map.setPaintProperty("logged", "fill-color", paint_property_single(year));
-  }
-
-  function filterLoggedAreas(year, single) {
-    if (single) {
-      setPaletteSingle();
-      filterSingle();
-    } else {
-      setPalette(year);
-      filterAccumulate();
-    }
+  function filterLoggedAreas(year) {
+    setPalette(year);
+    filterAccumulate();
   }
 
   onMount(async () => {
@@ -142,19 +63,6 @@
     });
 
     map.on("load", function () {
-      // map.addSource("basemap", {
-      //   type: "raster",
-      //   url: tileset_base,
-      // });
-      // map.addLayer({
-      //   id: "overlay",
-      //   source: "basemap",
-      //   type: "raster",
-      //   beforeLayer: "logged_simp",
-      //   paint: {
-      //     "raster-opacity": 1,
-      //   },
-      // });
       map.addSource("wshed_line", {
         type: "vector",
         url: tileset_wshed,
@@ -190,21 +98,6 @@
           ],
         },
       });
-      // map.addSource("wsheds_line", {
-      //   type: "vector",
-      //   url: tileset_wsheds_lines,
-      // });
-      // map.addLayer({
-      //   id: "wsheds_line",
-      //   source: "wsheds_line",
-      //   "source-layer": "wsheds_line",
-      //   type: "line",
-      //   paint: {
-      //     "line-width": 2,
-      //     "line-color": "black",
-      //   },
-      // });
-
       map.addControl(new mapbox.AttributionControl(), "bottom-right");
       map.fitBounds(bounds);
       done = true;

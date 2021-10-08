@@ -6,7 +6,6 @@
 	export let year_min;
 	export let data_total;
 	export let palette;
-	export let planned;
 
 	let update_totals;
 	let update_labels;
@@ -18,10 +17,6 @@
 	}
 
 	$: update_totals = data_total.map(function (el) {
-		return el.area;
-	});
-
-	$: planned_totals = planned.map(function (el) {
 		return el.area;
 	});
 
@@ -52,28 +47,19 @@
 		chart.update();
 	}
 
-	function numberWithCommas(x) {
-		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-	}
-
-
   onMount(async () => {
     let config = {
       type: "bar",
       data: {
         labels: update_labels,
         datasets: [
-			// {
-			// 	label: 'Planned (Ha)',
-			// 	data: planned_totals,
-			// 	backgroundColor: '#E6007E',
-			// 	borderColor: '#1F2937'
-			// },
 			{
 				label: 'Harvested (Ha)',
 				backgroundColor: update_palette,
 				borderColor: '#1F2937',
-				data: update_totals
+				data: update_totals,
+        categoryPercentage: 1.0,
+					barPercentage: 1.0
 			}
 		],
       },
@@ -81,15 +67,10 @@
 		legend: {
 		    display: false
 		 },
-		// maintainAspectRatio: true,
-		// responsive: true,
-		// animation: false,
 		scales: {
 			xAxes: [
 				{
-                    // stacked: true,
-					categoryPercentage: 1.0,
-					barPercentage: 1.0,
+					
 					gridLines: {
 						color: 'rgba(0, 0, 0, 0)'
 					}
@@ -97,7 +78,6 @@
 			],
 			yAxes: [
 				{
-                    // stacked: true,
 					ticks: {
 						beginAtZero: true,
 						callback: function (value, index, values) {

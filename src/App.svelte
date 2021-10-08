@@ -8,7 +8,7 @@
 	import planned from './planned.json';
 
 	import Modal from "svelte-simple-modal";
-  import ModalAbout from "./Components/ModalAbout.svelte";
+  	import ModalAbout from "./Components/ModalAbout.svelte";
 	import chroma from 'chroma-js';
 	import { base_colors, coordinates, year_min, year_max, bounds } from './consts';
 
@@ -24,16 +24,9 @@
 		map_palette.push(i);
 		map_palette.push(palette[i]);
 	}
-	let map_palette_single = map_palette[11];
 
 	let map_palette_planned = ['true', '#E6007E'];
-	let map_palette_sg = ['sg', '#E6007E'];
-
-	console.log(palette)
-
 	let year = [1970];
-	let single = false;
-	let secondgrowth = false;
 
 	let data_year;
 	$: data_year = yearTotals.filter(function (x) {
@@ -53,7 +46,6 @@
 	let logged_total;
 	$: logged_total = numberWithCommas(sumValues(totals));
 
-	console.log(planned)
 	let planned_total;
 	planned_total = planned.filter(function (x) {
 		return x.year == 2021;
@@ -77,14 +69,6 @@
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
-	function toggleSingle() {
-		single = !single;
-	}
-
-	function toggleSecondgrowth() {
-		secondgrowth = !secondgrowth;
-	}
-
 	function addYear() {
 		if (year != year_max) {
 			year[0]++;
@@ -98,16 +82,7 @@
 	}
 </script>
 
-<!-- <header
-    class="invisible absolute py-1 w-full bg-black text-black text-xl p-12
-    bg-opacity-75 sm:visible" style="z-index: 2;">
-    75 years of logging in Little Slocan 
-      
-    <div class = "absolute top-0 right-0 p-3 text-xs">
-      <span class="text-gray-600 pr-1" >developed by </span>
-      <a href="https://www.northbeachconsulting.ca" class="hover:no-underline hover:text-blue-600" target="_blank">North Beach Consulting</a>
-    </div>
-  </header> -->
+
 <div class="grid grid-cols-5 bg-black">
 	<div class="mt-5 col-span-2">
 		<div class="grid-rows-3">
@@ -117,9 +92,7 @@
 				<span class="text-xl text-gray-400">of</span>
 				<span class="text-2xl text-gray-400">logging</span>
 				<span class="text-xl text-gray-600">in</span>
-				<span class="text-2xl text-gray-400">Little Slocan</span>
-				<!-- <p class="text-md text-gray-700">Move the slider to go forward in time</p> -->
-				<!-- <p class="text-md text-gray-700">Hover over chart or map to view detailed info</p> -->				
+				<span class="text-2xl text-gray-400">Little Slocan</span>			
 			</div>
 			
 
@@ -159,20 +132,11 @@
 						<span class="text-2xl text-gray-500">{year}</span>
 					</div>
 					<div class="p-4">
-						<Chart {planned} {year} {year_min} {data_total} {map_palette} {palette} />
+						<Chart {year} {year_min} {data_total} {palette} />
 					</div>
 					<Modal >
 						<ModalAbout />
 					  </Modal>
-					<!-- <div class="text-xs p-3">
-						<span class="text-gray-600 pr-1">developed by </span>
-						<a
-							href="https://www.northbeachconsulting.ca"
-							class="hover:no-underline hover:text-blue-600"
-							target="_blank">North Beach Consulting</a
-						>
-					</div> -->
-					
 				</div>
 			</div>
 		</div>
@@ -183,21 +147,11 @@
 			class=" absolute ml-1 sm:my-1  p-0 md:p-2 rounded-lg bg-black bg-opacity-75 text-gray-400"
 			style="z-index: 1; "
 		>
-			<Legend {palette} {single} {secondgrowth} {map_palette_single} {map_palette_planned} />
-			<!-- <div class="absolute invisible sm:visible my-1">
-				{#if !single}
-					<Button caption={'by year'} on:single-year={toggleSingle} />
-				{:else}
-					<Button caption={'all years'} on:single-year={toggleSingle} />
-				{/if}
-			</div> -->
+			<Legend {palette} {map_palette_planned} />
 		</div>
 		<Map
 			year={year[0]}
-			{single}
-			{secondgrowth}
 			{map_palette}
-			{map_palette_single}
 			{map_palette_planned}
 			{bounds}
 		/>
@@ -205,32 +159,5 @@
 </div>
 
 <style>
-	a {
-		color: #4a5568;
-	}
 
-	.rangeSlider {
-  
-  --range-slider:          #646c7c;
-  --handle-border:   var(--handle);
-  --range-inactive:  var(--handle-focus);
-  --range:           var(--handle-focus);
-  --float-inactive:  var(--handle-focus);
-  --float:           var(--handle-focus);
-  --float-text:        white;
-  --pip-active:        white;
-  --pip-active-text:   var(--pip-active);
-  
-  --handle1: #00cfff;
-  --handle3: #ff2b66;
-  --handle2: #3edd8b;
-  --handle4: #f5d556;
-  
-}
-
-	.grid-container {
-		display: grid;
-		grid-template-columns: 2fr 3fr;
-		grid-gap: 0px;
-	}
 </style>
