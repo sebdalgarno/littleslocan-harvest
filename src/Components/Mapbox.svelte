@@ -5,6 +5,7 @@
     year_min,
     year_max,
     tileset_logging,
+    tileset_wshed,
     coordinates,
     source_layer,
     mapbox_style,
@@ -154,7 +155,20 @@
       //     "raster-opacity": 1,
       //   },
       // });
-
+      map.addSource("wshed_line", {
+        type: "vector",
+        url: tileset_wshed,
+      });
+      map.addLayer({
+        id: "wshed_line",
+        source: "wshed_line",
+        "source-layer": "wshed_line",
+        type: "line",
+        paint: {
+          "line-width": 4,
+          "line-color": "black",
+        },
+      });
  
       map.addSource("logged", {
         type: "vector",
