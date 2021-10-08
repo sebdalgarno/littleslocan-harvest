@@ -29,6 +29,8 @@
 	let map_palette_planned = ['true', '#E6007E'];
 	let map_palette_sg = ['sg', '#E6007E'];
 
+	console.log(palette)
+
 	let year = [1970];
 	let single = false;
 	let secondgrowth = false;
@@ -206,9 +208,25 @@
 	a {
 		color: #4a5568;
 	}
+
 	.rangeSlider {
-		color: #a0aec0;
-	}
+  
+  --range-slider:          #646c7c;
+  --handle-border:   var(--handle);
+  --range-inactive:  var(--handle-focus);
+  --range:           var(--handle-focus);
+  --float-inactive:  var(--handle-focus);
+  --float:           var(--handle-focus);
+  --float-text:        white;
+  --pip-active:        white;
+  --pip-active-text:   var(--pip-active);
+  
+  --handle1: #00cfff;
+  --handle3: #ff2b66;
+  --handle2: #3edd8b;
+  --handle4: #f5d556;
+  
+}
 
 	.grid-container {
 		display: grid;

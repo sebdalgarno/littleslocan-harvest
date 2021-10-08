@@ -5,6 +5,23 @@ body {
   height: 100%;
 }
 
+.rangeSlider {
+  
+  --range-slider:          #a0aec0;
+  --handle-border:   var(--handle);
+  --range-inactive:  var(--handle-focus);
+  --range:           var(--handle-focus);
+  --float-inactive:  var(--handle-focus);
+  --float:           var(--handle-focus);
+  --float-text:        white;
+  --pip-active:        white;
+  --pip-active-text:   var(--pip-active);
+  
+  --handle1: #ffff14;
+  
+}
+
+
 body {
   color: #333;
   margin: 0;
