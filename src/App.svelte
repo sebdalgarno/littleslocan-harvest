@@ -20,13 +20,20 @@
 	}
 
 	let map_palette = [];
+	let map_alpha = [];
 	for (let i = 0; i < palette.length; i++) {
 		map_palette.push(i);
 		map_palette.push(palette[i]);
+		map_alpha.push(i);
+		map_alpha.push(0.3 - i/200)
 	}
 
 	let map_palette_planned = ['true', '#E6007E'];
+	let map_palette_single = palette[10];
 	let year = [1970];
+	let single = false;
+	let buffer1 = false;
+	let buffer2 = false;
 
 	let data_year;
 	$: data_year = yearTotals.filter(function (x) {
@@ -57,6 +64,18 @@
 	} else {
 		logged_year = 0;
 	}
+
+	function toggleSingle() {
+    single = !single;
+  }
+
+  function toggleBuffer1() {
+    buffer1 = !buffer1;
+  }
+
+  function toggleBuffer2() {
+    buffer2 = !buffer2;
+  }
 
 	function sumValues(numbers) {
 		var x = numbers.reduce(function (prev, curr) {
@@ -134,6 +153,23 @@
 					<div class="p-4">
 						<Chart {year} {year_min} {data_total} {palette} />
 					</div>
+					<div>
+						{#if !single}
+						<Button caption={'by year'} on:single-year={toggleSingle} />
+					  {:else}
+						<Button caption={'all years'} on:single-year={toggleSingle} />
+					  {/if}
+					  {#if !buffer1}
+					  <Button caption={'show small zone of influence'} on:buffer1={toggleBuffer1} />
+					{:else}
+					  <Button caption={'hide small zone of influence'} on:buffer1={toggleBuffer1} />
+					{/if}
+					{#if !buffer2}
+					  <Button caption={'show large zone of influence'} on:buffer2={toggleBuffer2} />
+					{:else}
+					  <Button caption={'hide large zone of influence'} on:buffer2={toggleBuffer2} />
+					{/if}
+					</div>
 					<Modal >
 						<ModalAbout />
 					  </Modal>
@@ -151,8 +187,13 @@
 		</div>
 		<Map
 			year={year[0]}
+			{single}
+			{buffer1}
+			{buffer2}
 			{map_palette}
 			{map_palette_planned}
+			{map_alpha}
+			{map_palette_single}
 			{bounds}
 		/>
 	</div>

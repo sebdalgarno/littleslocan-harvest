@@ -2,7 +2,7 @@
   import { getContext } from "svelte";
   import About from "./About.svelte";
   import Button from "./Button.svelte";
-  import {data, tips } from "../about";
+  import {data, tips, tips2 } from "../about";
 
   const { open } = getContext("simple-modal");
   //   export let message;
@@ -16,7 +16,8 @@
   const showAbout = () => {
     open(About, {
       tips: tips,
-      data: data},
+      data: data,
+    tips2: tips2},
       {styleWindow: {'z-index': 100}}
     );
   };

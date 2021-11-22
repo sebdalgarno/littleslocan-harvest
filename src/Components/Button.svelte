@@ -11,6 +11,14 @@
     dispatch("single-year");
   }
 
+  function buffer1() {
+    dispatch("buffer1");
+  }
+
+  function buffer2() {
+    dispatch("buffer2");
+  }
+
   function secondGrowth() {
     dispatch("second-growth");
   }
@@ -38,6 +46,8 @@
   <button
     class="border-gray-700 p-2 text-gray-600 rounded-lg text-sm leading-none hover:text-blue-600 my-1"
     on:click={singleYear}
+    on:click={buffer1}
+    on:click={buffer2}
     on:click={secondGrowth}>
     {caption}
   </button>

@@ -1,6 +1,7 @@
 <script>
   export let data;
   export let tips;
+  export let tips2;
 </script>
 
 <style>
@@ -27,6 +28,8 @@
   <p class="title">Welcome!</p>
   <p class="title">Tips for exploring the data</p>
   <p class="text">{tips}</p>
+  <br>
+  <p class="text">{tips2}</p>
   <p class="subtitle">Data sources</p>
   <p class="smalltext">{data}</p>
   <p class="subtitle">Credit</p>
