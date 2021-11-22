@@ -14,11 +14,14 @@
   export let map_palette;
   export let map_palette_planned;
   export let map_palette_single;
+  export let map_palette_bare;
   export let map_alpha;
   export let bounds;
   export let single = true;
   export let buffer1 = false;
   export let buffer2 = false;
+
+  console.log(map_palette_bare)
 
   $: if (typeof map !== "undefined" && done) {
     filterLoggedAreas(year, single);
@@ -61,6 +64,10 @@
 
   let paint_property = (year) => {
     return [
+      "match",
+      ["string", ["get", "bare"]],
+      ...map_palette_bare,
+      [
         "match",
         ["string", ["get", "planned"]],
         ...map_palette_planned,
@@ -70,7 +77,22 @@
           ...map_palette,
           map_palette[1],
         ],
-      ]
+      ],
+    ];
+  };
+
+  let paint_property_single = () => {
+    return [
+      "match",
+      ["string", ["get", "stay_bare"]],
+      ...map_palette_bare,
+      [
+        "match",
+        ["string", ["get", "planned"]],
+        ...map_palette_planned,
+        map_palette_single,
+      ],
+    ];
   };
 
   let alpha_property = (year) => {
@@ -89,9 +111,9 @@
   }
 
   function setPaletteSingle(year) {
-    map.setPaintProperty("logged", "fill-color", map_palette_single);
-    map.setPaintProperty("buffer1", "fill-color", map_palette_single);
-    map.setPaintProperty("buffer2", "fill-color", map_palette_single);
+    map.setPaintProperty("logged", "fill-color", paint_property_single());
+    map.setPaintProperty("buffer1", "fill-color", paint_property_single());
+    map.setPaintProperty("buffer2", "fill-color", paint_property_single());
   }
 
   function setAlpha(year) {

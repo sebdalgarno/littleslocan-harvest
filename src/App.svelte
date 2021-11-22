@@ -29,6 +29,7 @@
 	}
 
 	let map_palette_planned = ['true', '#E6007E'];
+	let map_palette_bare = ["true", "#f0ca81"];
 	let map_palette_single = palette[10];
 	let year = [1970];
 	let single = false;
@@ -183,7 +184,7 @@
 			class=" absolute ml-1 sm:my-1  p-0 md:p-2 rounded-lg bg-black bg-opacity-75 text-gray-400"
 			style="z-index: 1; "
 		>
-			<Legend {palette} {map_palette_planned} />
+			<Legend {palette} {map_palette_planned} {map_palette_bare} />
 		</div>
 		<Map
 			year={year[0]}
@@ -192,6 +193,7 @@
 			{buffer2}
 			{map_palette}
 			{map_palette_planned}
+			{map_palette_bare}
 			{map_alpha}
 			{map_palette_single}
 			{bounds}

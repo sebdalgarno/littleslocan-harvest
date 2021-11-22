@@ -1,6 +1,7 @@
 <script>
   export let palette;
   export let map_palette_planned;
+  export let map_palette_bare;
 
   let legend_palette = [
     { value: "0", color: palette[0] },
@@ -8,7 +9,8 @@
     { value: "30", color: palette[30] },
     { value: "45", color: palette[45] },
     { value: ">60", color: palette[60] },
-    { value: "Planned", color: map_palette_planned[1]}
+    { value: "Planned", color: map_palette_planned[1]},
+    { value: "Bare", color: map_palette_bare[1]}
   ];
 </script>
 
