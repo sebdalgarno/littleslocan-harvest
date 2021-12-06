@@ -33,5 +33,5 @@
   <p class="subtitle">Data sources</p>
   <p class="smalltext">{data}</p>
   <p class="subtitle">Credit</p>
-  <p class="smalltext">Data were compiled by Dave Leversee. The visualization was developed by Seb Dalgarno (<a href="https://www.northbeachconsulting.ca" target="_blank">North Beach Consulting</a>). The idea and design borrow heavily from John Broadhead's animation of Haida Gwaii logging history. Contact <a href="mailto:seb@northbeachconsulting.ca">Seb Dalgarno</a> for more information.</p>
+  <p class="smalltext">This project was organized by concerned residents of the Little Slocan Watershed: Herb Hammond, Jennifer Yeow, and Kate Mizenka. Funding for this project provided by Sierra Club BC. Data were compiled by Dave Leversee. The visualization was developed by Seb Dalgarno (<a href="https://www.northbeachconsulting.ca" target="_blank">North Beach Consulting</a>). The idea and design are inspired by John Broadhead's animation of Haida Gwaii logging history. Contact <a href="mailto:seb@northbeachconsulting.ca">Seb Dalgarno</a> for more information.</p>
 </div>
