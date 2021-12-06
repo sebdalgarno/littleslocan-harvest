@@ -147,7 +147,7 @@
 					<div class="row-span-1 text-center bg-black text-gray-400 px-8">
 						<span class="text-2xl text-green-700">{logged_total}</span>
 						<span class="text-lg text-gray-700">hectares logged from</span>
-						<span class="text-2xl text-gray-500">1945</span>
+						<span class="text-2xl text-gray-500">1955</span>
 						<span class="text-lg text-gray-700">-</span>
 						<span class="text-2xl text-gray-500">{year}</span>
 					</div>

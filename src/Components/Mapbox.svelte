@@ -10,7 +10,7 @@
     mapbox_style,
   } from "../consts";
 
-  export let year = 1945;
+  export let year = 1955;
   export let map_palette;
   export let map_palette_planned;
   export let map_palette_single;
