@@ -127,7 +127,7 @@
 					</div>
 
 					<div class="pl-20 w-10/12 -mt-2">
-						<Slider bind:values={year} min={1945} max={2021} pips step={1} pipstep={10} />
+						<Slider bind:values={year} min={1955} max={2021} pips step={1} pipstep={10} />
 					</div>
 
 					{#if year == 2021}

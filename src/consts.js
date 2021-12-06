@@ -1,10 +1,10 @@
 export const mapbox_key =
   "pk.eyJ1Ijoibm9ydGhiZWFjaGNvbnN1bHRpbmciLCJhIjoiY2tld2ZkdXA1MmZ5cjJxcXZ4aWN5eWRteSJ9.GmGSqnuACz13roMMveTdsw";
 
-export const tileset_logging = "mapbox://northbeachconsulting.9oxg7oqt";
+export const tileset_logging = "mapbox://northbeachconsulting.1xe0iicd";
 export const tileset_wshed = "mapbox://northbeachconsulting.dykeao4l";
-export const tileset_buffer1 = "mapbox://northbeachconsulting.066a4o7d";
-export const tileset_buffer2 = "mapbox://northbeachconsulting.7dqww0jo";
+export const tileset_buffer1 = "mapbox://northbeachconsulting.554ftxk9";
+export const tileset_buffer2 = "mapbox://northbeachconsulting.5tcd92dg";
 
 export const source_layer = ["logged_simplify", "logged_dissolve"];
 
@@ -20,7 +20,7 @@ export const bounds = [
   [-117.24460, 49.88218],
 ];
 
-export const year_min = 1945;
+export const year_min = 1955;
 
 export const year_max = 2021;
 
