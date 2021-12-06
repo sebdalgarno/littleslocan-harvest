@@ -13,10 +13,10 @@
 	import { base_colors, coordinates, year_min, year_max, bounds } from './consts';
 
 	let yeardiff = year_max - year_min;
-	let palette = chroma.bezier(base_colors).scale().correctLightness().colors(60);
+	let palette = chroma.bezier(base_colors).scale().correctLightness().colors(66);
 
-	for (let i = 60; i < yeardiff; i++) {
-		palette.push(palette[59]);
+	for (let i = 66; i < yeardiff; i++) {
+		palette.push(palette[65]);
 	}
 
 	let map_palette = [];

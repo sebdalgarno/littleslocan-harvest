@@ -75,7 +75,7 @@
           "match",
           ["-", year, ["number", ["get", "year"]]],
           ...map_palette,
-          map_palette[1],
+          map_palette[131],
         ],
       ],
     ];
