@@ -84,7 +84,7 @@
   let paint_property_single = () => {
     return [
       "match",
-      ["string", ["get", "stay_bare"]],
+      ["string", ["get", "bare"]],
       ...map_palette_bare,
       [
         "match",
@@ -110,7 +110,7 @@
     map.setPaintProperty("buffer2", "fill-color", paint_property(year));
   }
 
-  function setPaletteSingle(year) {
+  function setPaletteSingle() {
     map.setPaintProperty("logged", "fill-color", paint_property_single());
     map.setPaintProperty("buffer1", "fill-color", paint_property_single());
     map.setPaintProperty("buffer2", "fill-color", paint_property_single());
