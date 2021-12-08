@@ -9,6 +9,7 @@
 
 	import Modal from "svelte-simple-modal";
   	import ModalAbout from "./Components/ModalAbout.svelte";
+	import ModalInfo from "./Components/ModalInfo.svelte";
 	import chroma from 'chroma-js';
 	import { base_colors, coordinates, year_min, year_max, bounds } from './consts';
 
@@ -173,6 +174,9 @@
 					</div>
 					<Modal >
 						<ModalAbout />
+					  </Modal>
+					  <Modal >
+						<ModalInfo />
 					  </Modal>
 				</div>
 			</div>

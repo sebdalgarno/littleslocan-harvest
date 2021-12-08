@@ -24,4 +24,4 @@
 </script>
 
 
-<Button caption={'More Info'} outline={false} on:open-modal={showAbout} />
+<Button caption={'About'} outline={false} on:open-modal={showAbout} />
